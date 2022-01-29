@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="d-flex">
+    <button type="button" class="btn btn-dark" style="margin: 10px;" (click)="newTask()">New Task</button>
+    <button type="button" class="btn btn-dark" style="margin: 10px;" (click)="updateTask()">Update/Delete</button>
+    </div>
+    
+<table class="table table-dark table-striped" *ngIf="tasks">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Project Id</th>
+        <th scope="col">Status</th>
+        <th scope="col">Assigned To User Id</th>
+        <th scope="col">Detail</th>
+        <th scope="col">createdOn</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{task.id}}</td>
+        <td>{{task.projectId}}</td>
+        <td>{{task.status}}</td>
+        <td>{{task.assignedToUserId}}</td>
+        <td>{{task.detail}}</td>
+        <td>{{task.createdOn}}</td>
+      </tr>  
+    </tbody>
+  </table>
+</div>

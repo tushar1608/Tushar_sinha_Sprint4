@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="d-flex">
+    <button type="button" class="btn btn-dark" style="margin: 10px;" (click)="newProject()">New Project</button>
+    <button type="button" class="btn btn-dark" style="margin: 10px;" (click)="updateProject()">Update/Delete</button>
+    </div>
+    
+<table class="table table-dark table-striped" *ngIf="projects">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Detail</th>
+        <th scope="col">Created on</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <th scope="row">{{project.id}}</th>
+        <td>{{project.name}}</td>
+        <td>{{project.detail}}</td>
+        <td>{{project.createdOn}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

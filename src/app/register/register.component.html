@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Registeration page</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" id="first-name"
+                placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="first-name">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" id="last-name" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label for="email-address">Email address</label>
+            <input type="email" class="form-control" formControlName="email" id="email-address"
+                placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Submit</button>
+    </form>
+</div>

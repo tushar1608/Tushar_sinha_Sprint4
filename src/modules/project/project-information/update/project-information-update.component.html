@@ -1,0 +1,23 @@
+<div class="container">
+    <button type="submit" class="btn btn-primary" [disabled]="!updateProjectForm.valid || activeSelectionIndex==0" (click)="prev()" style="margin-left: 10px; margin-bottom: 20px;">Prev</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!updateProjectForm.valid || activeSelectionIndex==projects?.length-1" (click)="next()" style="margin-left: 10px; margin-bottom: 20px;">Next</button>
+    <form [formGroup]="updateProjectForm" >
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" formControlName="id" id="id"
+                placeholder="id" readonly>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" formControlName="name" id="name"
+                placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="first-name">Detail</label>
+            <textarea type="text" class="form-control" formControlName="detail" id="detail" placeholder="Detail"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!updateProjectForm.valid" (click)="onBack()" style="margin-right: 10px;">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!updateProjectForm.valid" (click)="onUpdate()">Update</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!updateProjectForm.valid" (click)="onDelete()" style="margin-left: 10px;">Delele</button>
+    </form>
+</div>

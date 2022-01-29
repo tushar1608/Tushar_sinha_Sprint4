@@ -1,0 +1,33 @@
+<div class="container">
+    <button type="submit" class="btn btn-primary" [disabled]="!updateUserForm.valid || activeSelectionIndex==0" (click)="prev()" style="margin-left: 10px; margin-bottom: 20px;">Prev</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!updateUserForm.valid || activeSelectionIndex==users?.length-1" (click)="next()" style="margin-left: 10px; margin-bottom: 20px;">Next</button>
+    <form [formGroup]="updateUserForm" >
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" formControlName="id" id="id"
+                placeholder="id" readonly>
+        </div>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" id="first-name"
+                placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="first-name">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" id="last-name" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label for="email-address">Email address</label>
+            <input type="email" class="form-control" formControlName="email" id="email-address"
+                placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!updateUserForm.valid" (click)="onCancel()" >Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!updateUserForm.valid" (click)="onUpdate()" style="margin-left: 10px;">Update</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!updateUserForm.valid" (click)="onDelete()" style="margin-left: 10px;">Delele</button>
+    </form>
+</div>

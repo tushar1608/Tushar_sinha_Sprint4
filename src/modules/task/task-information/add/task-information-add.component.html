@@ -1,0 +1,18 @@
+<div class="container">
+    <form [formGroup]="taskForm">
+         <select class="custom-select form-group" formControlName="projectId">
+            <option value="" disabled>Project</option>
+            <option *ngFor="let project of projects" [ngValue]="project.id">{{project.name}}</option>
+         </select>
+         <select class="custom-select form-group" formControlName="assignedToUserId">
+            <option value="" disabled>User</option>
+            <option *ngFor="let user of users" [ngValue]="user.id">{{user.firstName}} {{user.lastName}}</option>
+         </select>
+         <div class="form-group">
+            <label for="first-name">Detail</label>
+            <textarea type="text" class="form-control" formControlName="detail" id="detail" placeholder="Detail"></textarea>
+        </div>
+        <button class="btn btn-primary" (click)="onBack()" style="margin-right: 10px;">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!taskForm.valid" (click)="onSubmit()">Submit</button>
+    </form>
+</div>

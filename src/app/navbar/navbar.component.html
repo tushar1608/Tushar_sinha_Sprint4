@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:void(0)">{{title}}</a>
+        <form class="d-flex">
+            <button class="btn btn-primary" type="button" *ngIf="!isLoggedIn()" (click)="login()">Login</button>
+            <button class="btn btn-primary" type="button" *ngIf="!isLoggedIn()" (click)="register()">Register</button>
+            <button class="btn btn-primary" type="button" *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+        </form>
+    </div>
+</nav>

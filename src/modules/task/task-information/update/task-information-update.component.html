@@ -1,0 +1,30 @@
+<div class="container">
+    <button type="submit" class="btn btn-primary" [disabled]="!updateTaskForm.valid || activeSelectionIndex==0" (click)="prev()" style="margin-left: 10px; margin-bottom: 20px;">Prev</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!updateTaskForm.valid || activeSelectionIndex==tasks?.length-1" (click)="next()" style="margin-left: 10px; margin-bottom: 20px;">Next</button>
+    <form [formGroup]="updateTaskForm" >
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" formControlName="id" id="id"
+                placeholder="id" readonly>
+        </div>
+        <select class="custom-select form-group" formControlName="projectId">
+            <option value="" disabled>Project</option>
+            <option *ngFor="let project of projects" [ngValue]="project.id">{{project.name}}</option>
+         </select>
+         <select class="custom-select form-group" formControlName="assignedToUserId">
+            <option value="" disabled>User</option>
+            <option *ngFor="let user of users" [ngValue]="user.id">{{user.firstName}} {{user.lastName}}</option>
+         </select>
+         <select class="custom-select form-group" formControlName="status">
+            <option value="" disabled>Status</option>
+            <option *ngFor="let status of statuses" [ngValue]="status.id">{{status.name}}</option>
+         </select>
+        <div class="form-group">
+            <label for="first-name">Detail</label>
+            <textarea type="text" class="form-control" formControlName="detail" id="detail" placeholder="Detail"></textarea>
+        </div>
+        <button  class="btn btn-primary" (click)="onBack()" style="margin-right: 10px;">Cancel</button>
+        <button  class="btn btn-primary" [disabled]="!updateTaskForm.valid" (click)="onUpdate()">Update</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!updateTaskForm.valid" (click)="onDelete()" style="margin-left: 10px;">Delele</button>
+    </form>
+</div>
