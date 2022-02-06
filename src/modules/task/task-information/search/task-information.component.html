@@ -20,7 +20,7 @@
       <tr *ngFor="let task of tasks">
         <td>{{task.id}}</td>
         <td>{{task.projectId}}</td>
-        <td>{{task.status}}</td>
+        <td>{{status[task.status]}}</td>
         <td>{{task.assignedToUserId}}</td>
         <td>{{task.detail}}</td>
         <td>{{task.createdOn}}</td>

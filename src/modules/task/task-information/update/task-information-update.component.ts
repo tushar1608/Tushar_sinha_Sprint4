@@ -33,9 +33,9 @@ import { TaskManagementService } from "../shared/services/task-management.servic
         this.userManagementService.getAllUsers().subscribe((result:Array<User>) => {
             this.users = result;
         });
-        this.statuses.push(new Status(0, "New"));
-        this.statuses.push(new Status(1, "In progress"));
-        this.statuses.push(new Status(2, "Done"));
+        this.statuses.push(new Status(1, "New"));
+        this.statuses.push(new Status(2, "In progress"));
+        this.statuses.push(new Status(3, "Done"));
     }
 
     ngOnInit() {

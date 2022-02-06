@@ -10,6 +10,11 @@ import { TaskManagementService } from "../shared/services/task-management.servic
 })
 export class TaskInformationComponent implements OnInit {
     public tasks: Array<Task>;
+    public status = {
+        1: "New",
+        2: "In progress",
+        3: "Done"
+    }
     constructor(private router: Router, private taskManagementService: TaskManagementService) {
 
     }
