@@ -8,27 +8,31 @@ export class UserManagementService {
 
     }
 
-    getAllUsers() {
+    private getHeaders() {
+        return new HttpHeaders().set('content-type', 'application/json').set('Authorization', `Bearer ${this.authenticationService.getAuthToken()}`);
+    }
+
+    public getAllUsers() {
         const url =  "https://localhost:5001/api/User";
-        const headers= new HttpHeaders().set('content-type', 'application/json').set('Authorization', `Bearer ${this.authenticationService.getAuthToken()}`);
+        const headers= this.getHeaders();
         return this.httpClient.get(url,{headers: headers});
     }
 
     public addUser(registerBody:any) {
         const url = "https://localhost:5001/api/User";
-        const headers= new HttpHeaders().set('content-type', 'application/json').set('Authorization', `Bearer ${this.authenticationService.getAuthToken()}`);
+        const headers= this.getHeaders();
         return this.httpClient.post(url, registerBody,  { responseType: 'text', headers: headers });
     }
 
     public deleteUser(id: string) {
         const url = `https://localhost:5001/api/User/${id}`;
-        const headers= new HttpHeaders().set('content-type', 'application/json').set('Authorization', `Bearer ${this.authenticationService.getAuthToken()}`);
+        const headers= this.getHeaders();
         return this.httpClient.delete(url, { responseType: 'text', headers: headers });
     }
 
     public updateUser(registerBody:any) {
         const url = "https://localhost:5001/api/User";
-        const headers= new HttpHeaders().set('content-type', 'application/json').set('Authorization', `Bearer ${this.authenticationService.getAuthToken()}`);
+        const headers= this.getHeaders();
         return this.httpClient.put(url, registerBody,  { responseType: 'text', headers: headers });
     }
 }
